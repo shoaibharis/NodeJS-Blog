@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/css/styles.css">
+    <title>Document</title>
+</head>
+<body>
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    {{#each slide}}
+    <li data-target="#carouselExampleIndicators" data-slide-to="{{@index}}" class="{{this.class}}"></li>
+  {{/each}}
+  </ol>
+  <div class="carousel-inner">
+    {{#each slide}}
+    <div class="carousel-item {{this.class}}">
+      <img class="d-block slider-img w-100" src="{{this.image}}" alt="First slide">
+    <div class="carousel-caption car-cap d-none d-md-block">
+      <h3>{{this.title}}</h3>
+      <p>{{this.description}}</p>
+    </div>
+    </div>
+    {{/each}}
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+</body>
+</html>

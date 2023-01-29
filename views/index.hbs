@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <title>Hello world!</title>
+  </head>
+  <body>
+    {{>navbar data=details}}
+    {{>slider slide=slides}}
+
+    <section id="services" class="section-bg container-fluid py-5" >
+      <h1 class="text-center" style="color:aliceblue"> Our services</h1>
+      <div class="container mt-5">
+        <div class="row mt-3 text-light">
+          {{#each services}}
+          <div class="col-lg-4 card"><div class="card-body text-center"><i class=" icon {{this.icon}}"></i><h5
+          class="card-title">{{this.title}}</h5><p>{{this.description}}</p>
+         <a href="{{this.link}}"><button type="button" class="btn btn-primary">Check</button></a>
+          </div></div>
+
+          {{!-- <div class="col-lg-4 card"><div class="card-body text-center"><i class=" icon {{this.icon}}"></i><h5 class="card-title">{{this.title}}</h5><p>{{this.description}}</p>
+          <a href="{{this.link}}"><button type="button" class="btn btn-primary">Check</button></a></div></div> --}}
+
+          {{!-- <div class="col-lg-4 card"><div class="card-body text-center"><i class="icon {{this.icon}}"></i><h5 class="card-title">{{this.title}}</h5><p>{{this.description}}</p>
+          <a href="{{this.link}}"><button type="button" class="btn btn-primary">Check</button></a></div></div> --}}
+          {{/each}}
+        </div>
+      </div>
+
+    </section>
+
+    <section class="container-fluid react fluid mt-5 py-5">
+      <div class="container text-light">
+        <div class="row">
+          {{#each reactJS}}
+          <div class="col-lg-6 card-body"><h1 class="card-title">{{this.title}}</h1><p>{{this.description}}</p><a href="{{this.link}}"><button type="button" class="btn btn-primary">Read More!</button></a></div>
+          <div class="col-lg-2"></div>
+          <div class="col-lg-4"><img class="img-size"src="{{this.image}}" alt=""><div>
+            {{/each}}
+        </div>
+      </div>
+    </section>
+
+    <div class="container-fluid mt-5 section-bg py-5 ">
+      <h1 class="text-center" style="color:aliceblue"> Featured Posts</h1>
+      <div class="container featured-container mt-5">
+      <div class="row py-5">
+        {{#each posts}}
+        <div class="card" style="width: 15rem; margin:auto;">
+  <img class="card-img-top card-img" src="/static/images/{{this.image}}" alt="Card image cap">
+  <div class="card-body featured text-light">
+    <h5 class="card-title">{{this.title}}</h5>
+    <p class="card-text">{{this.description}}</p>
+    <p class="card-text">Posted By <span style="font-weight: bold">{{this.postedBy}}</span></p>
+            <form action="readPost" method="post" >
+      <input type="hidden" name="postID" value="{{this._id}}">
+    <button type="submit" class="btn btn-primary">Read More!</button>
+</form>  </div>
+</div>
+{{/each}}
+      </div>
+    </div>
+   </div>
+
+   {{!-- <div class="container-fluid" >
+    <div class="container-margin" style="margin-bottom:50px;margin-top: 50px;">
+	<form action="C:\xampp\htdocs\form.php" method="post">
+        <div class="container">
+        <h1 class="text-center text-light">Contact Us!</h1>
+  <div class="form-group">
+    <label for="Name" class="text-light">Name</label>
+    <input type="text" class="form-control" id="Name" aria-describedby="emailHelp" placeholder="Name" name="Name" required>
+  </div>
+  <div class="form-group">
+    <label for="Email" class="text-light">Email</label>
+    <input type="text" class="form-control" id="Email" aria-describedby="emailHelp" placeholder="Email" name="Email" required>
+  </div>
+  <div class="form-group">
+    <label for="Subject" class="text-light">Subject</label>
+    <input type="text" name="Subject" class="form-control" id="Subject" placeholder="Subject" required>
+  </div>
+  <div class="form-group">
+    <label for="Message" class="text-light">Message</label>
+    <textarea class="form-control" id="Message" rows="3" name="Message" required></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</div>
+</form> 
+</div>
+   </div> --}}
+
+<div class="container-fluid container-bg mt-5">
+<div class="container text-light py-5">
+  <div class="row">
+<div class="col-lg-6 text-left text-primary"><i class="fa fa-code logo mt-5 py-5"></i></div>
+<div class="col-lg-6"><h1 class="text-center" id="Contact">Contact Us!</h1>
+    <form action="/contact" method="post">
+        <div class="container">
+  <div class="form-group">
+    <label for="Name" class="text-light">Name</label>
+    <input type="text" class="form-control" id="Name" aria-describedby="emailHelp" placeholder="Name" name="username" required="true">
+  </div>
+  <div class="form-group">
+    <label for="Email" class="text-light">Email</label>
+    <input type="text" class="form-control" id="Email" aria-describedby="emailHelp" placeholder="Email" name="email" required="true">
+  </div>
+  <div class="form-group">
+    <label for="Subject" class="text-light">Subject</label>
+    <input type="text" class="form-control" id="Subject" placeholder="subject" name="subject" required="true">
+  </div>
+  <div class="form-group">
+    <label for="Message" class="text-light">Message</label>
+    <textarea class="form-control" id="Message" rows="3" name="message" required="true"></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+  </body>
+</html>

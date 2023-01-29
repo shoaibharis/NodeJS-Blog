@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    {{>navbar data=details}}
+
+    <h1 class="container mt-5 text-center">Create Post</h1>
+ <div class="container mt-5">
+  {{!-- <form action="post-process" method="post">
+    title <input type="text" name="title" id="">
+    description <input  type="text" name="description"> --}}
+
+     <form method="post" action="post-process">
+
+    <label for="exampleFormControlInput1">Title</label>
+    <input type="text" name="title" class="form-control" id="exampleFormControlInput1" placeholder="Java Script">
+  
+
+    <label for="exampleFormControlTextarea1">Description</label>
+    <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="3"></textarea>
+ <div class="form-group">
+  <label for="exampleFormControlInput1">Image File</label>
+    <input type="file" class="form-control border-none" name="img" id="exampleFormControlInput1" placeholder="Java Script">
+  </div> 
+  <input type="hidden" name="username" value="{{user.username}}">
+  <button type="submit" class="btn btn-primary">Post Now!</button>
+  <a href="/login"><div class="btn btn-dark">Logout</div></a>
+  </form>
+</div>
+</body>
+</html>
