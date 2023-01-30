@@ -13,17 +13,18 @@
 <body>
     {{>navbar data=details}}
     <div class="container">
-           <div class="heading-style container text-light" >Blog Posts<br></div><hr>
-           <div class="container" style="margin-top:12px; margin-bottom: 20px;">
+           <div class="heading-style container text-light" ><h1 style="position:relative ;">Blog Posts
+            <hr style="position:absolute; left:0"></h1></div>
+           <div class="container mt-5" style="margin-top:12px; margin-bottom: 20px;">
 {{#each posts}}
      <form action="readPost" method="post">
-        <div class='card border card-post text-light'>
-        <img src="/static/images/{{this.image}}" class=' blog-card-img card-img-top'/>
-        <div class='card-body blog-card-body'>
+        <div class='card card-post text-light'>
+        <img src="/static/images/{{this.image}}" class='d-none d-md-block blog-card-img card-img-top'/>
+        <div class='card-body blog-card-body d-sm-12 '>
         <h3 class='card-title' style='font-weight: bold;'>{{this.title}}</h3>
-        <p class='card-title' style="font-size:20px">{{this.description}}</p>
-        <p class="card-text">Posted by <b>{{this.postedBy}}</b></p>
-        <p class="card-text">Posted at {{this.time}}</p>
+        <p class='card-title d-none d-lg-block' style="font-size:20px; color:rgb(193, 193, 193)">{{this.description}}</p>
+        <p class="card-text" style="color:rgb(193, 193, 193)">Posted by <b>{{this.postedBy}}</b></p>
+        <p class="card-text" style="color:rgb(193, 193, 193);">Posted at {{this.time}}</p>
        <input type="hidden" name="postID" value="{{this._id}}">
         <a href=''><button style='width:100px' type='submit' name='read' class='btn btn-primary mt-3 ml-0'><b>Read More </b> </button></a>
        </div>
@@ -33,5 +34,6 @@
  
       </div>
     </div>
+    {{> footer}}
 </body>
 </html>

@@ -64,6 +64,32 @@ writePost.get("/Blog",async(req,res)=>{
         details:result,
         posts:read
     })
+});
+
+writePost.get("/posts/:postName",async function(req, res){
+    const result=await Detail.findOne(); 
+
+    const requestedTitle = req.params.postName.toLowerCase();
+    
+    var postId=""
+    var found={}
+    var recievedTitle=""
+    
+    const read=await Post.find()
+    
+    read.forEach((y)=>{
+    //lower case and remove spaces
+        recievedTitle=y.title.toLowerCase().replace(/\s+/g, '')
+    
+     if(requestedTitle===recievedTitle){
+           found=y
+       }
+   }) 
+res.render("Post",{
+    details:result,
+    post:found
 })
+})
+
 module.exports=writePost;
 

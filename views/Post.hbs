@@ -19,13 +19,14 @@
  
 
   <h1 class="mt-3" style="font-size; font-weight:bold;">{{post.title}}
- </h1><p>By <span style="font-weight:bold;">{{post.postedBy}}</span> <br>  Posted at {{post.time}}</p>
-    <hr>
+</h1><p>By <span style="font-weight:bold;">{{post.postedBy}}</span> <br>  Posted at {{post.time}}</p>
+    
 
 
     <img src="/static/images/{{post.image}}" style="Width: 40%; height: 5%;border-bottom-right-radius: 5px; object-fit: cover;" class="card-img-top"/>
         <p style="font-size:25px; margin-top:10px; margin-bottom:10px">{{post.description}} </p> 
  
       </div>
+      {{> footer}}
     </body>
     </html>
